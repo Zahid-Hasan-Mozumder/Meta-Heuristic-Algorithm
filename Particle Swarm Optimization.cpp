@@ -114,14 +114,8 @@ void PSO(){
 
 
 void zahid(){
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("Error.txt", "w", stderr);
-    #endif
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    	cout << "The algorithm is implemented by Zahid Hasan Mozumder" << '\n';
+  	cout << "This is an implementation of Particle Swarm Optimization on 2D plane" << '\n';
 }
 
 int main(){
