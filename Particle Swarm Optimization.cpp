@@ -13,7 +13,7 @@ double xmin, xmax, ymin, ymax;
 double w;
 
 
-//------------------------------------------- r ranges in (0.0 - 1.0) ------------------------------------------------------------
+//---------------------------------------------------------------------------- r ranges in (0.0 - 1.0) ----------------------------------------------------------------------------------------------------------------------
 double r(){
 	random_device val;
 	mt19937 generator(val());
@@ -22,7 +22,7 @@ double r(){
 }
 
 
-//------------------------------------------- Generate Initial Population ----------------------------------------------------------
+//---------------------------------------------------------------------------- Generate Initial Population --------------------------------------------------------------------------------------------------------------
 void generate_initial_population(vector<pair<double, double>> &X, vector<pair<double, double>> &pBest){
 	for(int i = 0; i < agent; i++){
 		double x = xmin + r() * (xmax - xmin);
@@ -33,14 +33,14 @@ void generate_initial_population(vector<pair<double, double>> &X, vector<pair<do
 }
 
 
-//------------------------------------------- Generate Initial Velocity ------------------------------------------------------------
+//---------------------------------------------------------------------------- Generate Initial Velocity ---------------------------------------------------------------------------------------------------------------------
 void generate_initial_velocity(vector<pair<double, double>> &v){
 	for(int i = 0; i < agent; i++)
 		v.push_back({2.0, 2.0});
 }
 
 
-//-------------------------------------------- Bringing points into bounds ---------------------------------------------------------
+//---------------------------------------------------------------------------- Bringing points into bounds --------------------------------------------------------------------------------------------------------------------
 void position_update_check(vector<pair<double, double>> &X){
 	for(int i = 0; i < agent; i++){
 		if(X[i].first < xmin) X[i].first = xmin;
@@ -51,10 +51,9 @@ void position_update_check(vector<pair<double, double>> &X){
 }
 
 
-//--------------------------------------------- Calculate Fitness Value -------------------------------------------------------------
-//--------------------------------------------- Using Sphere Function ---------------------------------------------------------------
-void calculate_fitness(vector<pair<double, double>> X, vector<pair<double, double>> v,
-					   vector<pair<double, double>> &pBest, pair<double, double> &gBest){
+//----------------------------------------------------------------------------- Calculating Fitness Value ---------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------- Using Sphere Function --------------------------------------------------------------------------------------------------------------------
+void calculate_fitness(vector<pair<double, double>> X, vector<pair<double, double>> v, vector<pair<double, double>> &pBest, pair<double, double> &gBest){
 	double mn = LLONG_MAX;
 	for(int i = 0; i < agent; i++){
 		double curr_val = (X[i].first * X[i].first) + (X[i].second * X[i].second);
@@ -70,9 +69,8 @@ void calculate_fitness(vector<pair<double, double>> X, vector<pair<double, doubl
 }
 
 
-//---------------------------------------------- Updating the points ---------------------------------------------------------------
-void update_points_and_velocity(vector<pair<double, double>> &X, vector<pair<double, double>> &v,
-						        vector<pair<double, double>> &pBest, pair<double, double> &gBest){
+//----------------------------------------------------------------------------- Updating the points ---------------------------------------------------------------------------------------------------------------------------
+void update_points_and_velocity(vector<pair<double, double>> &X, vector<pair<double, double>> &v, vector<pair<double, double>> &pBest, pair<double, double> &gBest){
 	for(int i = 0; i < agent; i++){
 		v[i].first = (w * v[i].first) + (c1 * r() * (pBest[i].first - X[i].first)) + (c2 * r() * (gBest.first - X[i].first));
 		X[i].first = X[i].first + v[i].first;
@@ -82,7 +80,7 @@ void update_points_and_velocity(vector<pair<double, double>> &X, vector<pair<dou
 }
 
 
-//------------------------------------------- Particle Swarm Optimization ----------------------------------------------------------
+//---------------------------------------------------------------------------- Particle Swarm Optimization ---------------------------------------------------------------------------------------------------------------------
 void PSO(){
 	cout << "(_,_) ----------------- (_,_)" << '\n';
 	for(int i = 0; i < 10; i++) cout << "  |                       |  " << '\n';
@@ -127,8 +125,6 @@ void zahid(){
 }
 
 int main(){
-
 	zahid();
-
 	PSO();
 }
