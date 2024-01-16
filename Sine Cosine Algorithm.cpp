@@ -2,6 +2,7 @@
 
 using namespace std;
 
+const double pi = acos(-1.0);
 const int agent = 6;
 const int iterations = 100;
 
