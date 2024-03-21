@@ -101,8 +101,8 @@ void SCA(){
 	for(int i = 0; i < 10; i++) cout << "  |                       |  " << '\n';
 	cout << "(_,_) ----------------- (_,_)" << '\n' << '\n';
 
-	cout << "Choose the right point of x-axis : "; cin >> xmin; cout << '\n';
-	cout << "Choose the left point of x-axis : "; cin >> xmax; cout << '\n';
+	cout << "Choose the left point of x-axis : "; cin >> xmin; cout << '\n';
+	cout << "Choose the right point of x-axis : "; cin >> xmax; cout << '\n';
 	cout << "Choose the lower point of y-axis : "; cin >> ymin; cout << '\n';
 	cout << "Choose the upper point of y-axis : "; cin >> ymax; cout << '\n';
 
